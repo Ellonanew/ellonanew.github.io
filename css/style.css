@@ -8,6 +8,10 @@
     /*animation: scale .5s infinite linear;*/
 }
 
+#chuck {
+    max-width: 200px;
+}
+
 @keyframes rotation {
     from {
         transform: rotate(0deg);
@@ -25,5 +29,8 @@
     to {
         transform: scaleX(1);
     }
+}
 
+.rslink > img {
+    max-width: 30%;
 }

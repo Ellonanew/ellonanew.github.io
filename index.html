@@ -7,21 +7,22 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
-<main class="container">
+<body class="d-flex flex-column min-vh-100">
+<main class="flex-shrink-0">
     <div class="d-flex justify-content-center p-2">
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check " name="btnradio" id="lang_ru" autocomplete="off" checked>
-            <label class="btn btn-outline-info btn-sm" for="lang_ru">По русски</label>
-            <input type="radio" class="btn-check" name="btnradio" id="lang_en" autocomplete="off">
-            <label class="btn btn-outline-info btn-sm" for="lang_en">По другому</label>
+            <input type="radio" class="btn-check " name="lang_switch" id="lang_ru" autocomplete="off" checked>
+            <label class="btn btn-outline-info btn-sm" for="lang_ru" data-i18="lang_ru">По русски</label>
+            <input type="radio" class="btn-check" name="lang_switch" id="lang_en" autocomplete="off">
+            <label class="btn btn-outline-info btn-sm" for="lang_en" data-i18="lang_en">По другому</label>
         </div>
     </div>
     <div class="d-flex justify-content-center p-2">
         <img src="img/main.png" alt="chuck" class="img-fluid main_img" id="main_chuck">
     </div>
     <div class="d-flex justify-content-center p-2">
-        <button type="button" class="btn btn-primary btn-sm" onclick="getPhrases()">Больше Чака!</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="getPhrases()" data-i18="more_chuck">Больше Чака!
+        </button>
     </div>
     <div class="d-flex justify-content-center p-2">
         <div id="phrase">Chuck</div>
@@ -30,23 +31,41 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="chuckModal">Чак</h5>
+                    <h5 class="modal-title" id="chuckModal" data-i18="chuck_header">Чак</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="img/1.gif" alt="gif">
+                    <div class="container">
+                        <div class="row">
+                            <img src="img/1.gif" alt="gif" id="chuck" class="col-10 mx-auto text-center">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18="close">Закрыть</button>
                 </div>
             </div>
         </div>
     </div>
 </main>
-<footer>
-
+<footer class="footer mt-auto py-3 bg-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <a href="https://github.com/ellonanew"><img src="img/git-logo.png" alt="git logo"></a>
+            </div>
+            <div id="year" class="col">
+                2022
+            </div>
+            <div class="col">
+                <a href="https://rs.school/js-stage0/" class="rslink">
+                    <img src="https://rs.school/images/rs_school_js.svg" alt="lin rs school">
+                </a>
+            </div>
+        </div>
+    </div>
 </footer>
 <script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
+<script type="module"src="js/main.js"></script>
 </body>
 </html>
