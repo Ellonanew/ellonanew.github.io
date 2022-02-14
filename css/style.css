@@ -1,0 +1,29 @@
+#phrase {
+    text-align: center;
+}
+
+.main_img {
+    max-width: 200px !important;
+    animation: rotation 2s infinite linear;
+    /*animation: scale .5s infinite linear;*/
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes scale {
+    from{
+        transform: scaleX(-1);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+
+}

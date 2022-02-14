@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chuck phrases</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<main class="container">
+    <div class="d-flex justify-content-center p-2">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check " name="btnradio" id="lang_ru" autocomplete="off" checked>
+            <label class="btn btn-outline-info btn-sm" for="lang_ru">По русски</label>
+            <input type="radio" class="btn-check" name="btnradio" id="lang_en" autocomplete="off">
+            <label class="btn btn-outline-info btn-sm" for="lang_en">По другому</label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center p-2">
+        <img src="img/main.png" alt="chuck" class="img-fluid main_img" id="main_chuck">
+    </div>
+    <div class="d-flex justify-content-center p-2">
+        <button type="button" class="btn btn-primary btn-sm" onclick="getPhrases()">Больше Чака!</button>
+    </div>
+    <div class="d-flex justify-content-center p-2">
+        <div id="phrase">Chuck</div>
+    </div>
+    <div class="modal fade" id="chuckModalContainer" tabindex="-1" aria-labelledby="chuckModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chuckModal">Чак</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/1.gif" alt="gif">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+
+</footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
