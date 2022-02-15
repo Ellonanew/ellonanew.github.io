@@ -1,4 +1,19 @@
-import i18Obj from './translate.js';
+const i18Obj = {
+    "ru": {
+        "lang_ru": "English",
+        "lang_en": "По другому",
+        "more_chuck": "Больше Чака!",
+        "chuck_header": "Чак",
+        "close": "Закрыть",
+    },
+    "en": {
+        "lang_ru": "Русский",
+        "lang_en": "English",
+        "more_chuck": "Get me more Chuck's!",
+        "chuck_header": "Chuck",
+        "close": "Close",
+    },
+}
 let phrase = document.getElementById('phrase')
 let chuck = document.getElementById('main_chuck')
 let firstLoad = true
@@ -9,19 +24,21 @@ const chuckImg = document.getElementById('chuck')
 document.addEventListener("DOMContentLoaded", () => {
     getPhrases()
     getRandomInt()
-    let lang = document.querySelector('input[name="lang_switch"]:checked').value;
-    console.log(lang)
+    initLangSwitch()
 })
 
 async function getPhrases() {
-    let response = await fetch("https://takahooly.net/random.php");
+    let isRu = getLang() === 'ru'
+    let url = isRu ? 'https://takahooly.net/random.php' : 'https://api.icndb.com/jokes/random?escape=javascript'
+    let response = await fetch(url);
     if (response.ok) {
         let json = await response.json();
-        phrase.textContent = json.phrase;
+        let text = isRu ? json.phrase : json.value.joke
+        phrase.textContent = text;
         firstLoad = !firstLoad
         chuck.style.animation = firstLoad ? "rotation 2s infinite linear" : "scale .5s infinite linear"
         curClick++
-        if (curClick === randNum){
+        if (curClick === randNum) {
             curClick = 0
             chuckModal.show()
             chuckImg.src = "img/" + randNum + ".gif"
@@ -49,4 +66,13 @@ function setLang(lang = 'ru') {
 
 function getLang() {
     return localStorage.getItem('lang') ?? 'ru'
+}
+
+function initLangSwitch() {
+    let switcher = document.getElementById('lang')
+    switcher.addEventListener('click', e => {
+        e.preventDefault()
+        switcher.dataset.lang = (switcher.dataset.lang === 'ru') ? 'en' : 'ru'
+        setLang(switcher.dataset.lang)
+    })
 }
